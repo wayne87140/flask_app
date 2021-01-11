@@ -33,3 +33,4 @@ def create_app(test_config=None):
     db.init_app(app)
 
     return app
+
