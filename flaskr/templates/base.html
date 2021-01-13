@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome Index</title>
+    {% endif %}
 </head>
 <body>
+    <h1>ITRI ITRI ITRI</h1>
+    <a href = "{{ url_for('homepage') }}"> HOME</a>
+    <a href = "{{ url_for('login') }}">LOGIN</a>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+
+    {% block bodycontent %}{% endblock %}
 
 </body>
 </html>
